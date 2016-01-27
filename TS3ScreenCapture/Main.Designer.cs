@@ -37,25 +37,27 @@
             this.lblFP10S = new System.Windows.Forms.Label();
             this.timerFP10S = new System.Windows.Forms.Timer(this.components);
             this.pnlController = new System.Windows.Forms.Panel();
+            this.comboBoxTab = new System.Windows.Forms.ComboBox();
+            this.btnTcpCapture = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numQuallity = new System.Windows.Forms.NumericUpDown();
-            this.numTab = new System.Windows.Forms.NumericUpDown();
             this.numFactor = new System.Windows.Forms.NumericUpDown();
             this.numSpeed = new System.Windows.Forms.NumericUpDown();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.btnImageCapture = new System.Windows.Forms.Button();
+            this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.picCapture)).BeginInit();
             this.pnlController.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuallity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFactor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSpeed)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(12, 14);
+            this.btnConnect.Location = new System.Drawing.Point(12, 13);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 31);
             this.btnConnect.TabIndex = 0;
@@ -67,7 +69,7 @@
             // 
             this.btnCapture.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCapture.Enabled = false;
-            this.btnCapture.Location = new System.Drawing.Point(311, 12);
+            this.btnCapture.Location = new System.Drawing.Point(319, 50);
             this.btnCapture.Name = "btnCapture";
             this.btnCapture.Size = new System.Drawing.Size(75, 33);
             this.btnCapture.TabIndex = 1;
@@ -119,11 +121,13 @@
             // 
             // pnlController
             // 
+            this.pnlController.Controls.Add(this.btnImageCapture);
+            this.pnlController.Controls.Add(this.comboBoxTab);
+            this.pnlController.Controls.Add(this.btnTcpCapture);
             this.pnlController.Controls.Add(this.label3);
             this.pnlController.Controls.Add(this.label2);
             this.pnlController.Controls.Add(this.label1);
             this.pnlController.Controls.Add(this.numQuallity);
-            this.pnlController.Controls.Add(this.numTab);
             this.pnlController.Controls.Add(this.numFactor);
             this.pnlController.Controls.Add(this.numSpeed);
             this.pnlController.Controls.Add(this.comboBoxClient);
@@ -136,6 +140,29 @@
             this.pnlController.Name = "pnlController";
             this.pnlController.Size = new System.Drawing.Size(886, 86);
             this.pnlController.TabIndex = 5;
+            // 
+            // comboBoxTab
+            // 
+            this.comboBoxTab.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTab.Enabled = false;
+            this.comboBoxTab.FormattingEnabled = true;
+            this.comboBoxTab.Location = new System.Drawing.Point(93, 19);
+            this.comboBoxTab.Name = "comboBoxTab";
+            this.comboBoxTab.Size = new System.Drawing.Size(41, 21);
+            this.comboBoxTab.TabIndex = 14;
+            this.comboBoxTab.SelectedIndexChanged += new System.EventHandler(this.comboBoxTab_SelectedIndexChanged);
+            // 
+            // btnTcpCapture
+            // 
+            this.btnTcpCapture.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnTcpCapture.Enabled = false;
+            this.btnTcpCapture.Location = new System.Drawing.Point(400, 51);
+            this.btnTcpCapture.Name = "btnTcpCapture";
+            this.btnTcpCapture.Size = new System.Drawing.Size(75, 32);
+            this.btnTcpCapture.TabIndex = 13;
+            this.btnTcpCapture.Text = "TCP";
+            this.btnTcpCapture.UseVisualStyleBackColor = true;
+            this.btnTcpCapture.Click += new System.EventHandler(this.btnTcpCapture_Click);
             // 
             // label3
             // 
@@ -185,18 +212,6 @@
             0,
             0});
             // 
-            // numTab
-            // 
-            this.numTab.Location = new System.Drawing.Point(93, 21);
-            this.numTab.Name = "numTab";
-            this.numTab.Size = new System.Drawing.Size(37, 20);
-            this.numTab.TabIndex = 8;
-            this.numTab.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // numFactor
             // 
             this.numFactor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -239,10 +254,28 @@
             this.comboBoxClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClient.Enabled = false;
             this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(392, 19);
+            this.comboBoxClient.Location = new System.Drawing.Point(319, 19);
             this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(196, 21);
+            this.comboBoxClient.Size = new System.Drawing.Size(237, 21);
             this.comboBoxClient.TabIndex = 5;
+            // 
+            // btnImageCapture
+            // 
+            this.btnImageCapture.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnImageCapture.Enabled = false;
+            this.btnImageCapture.Location = new System.Drawing.Point(481, 51);
+            this.btnImageCapture.Name = "btnImageCapture";
+            this.btnImageCapture.Size = new System.Drawing.Size(75, 32);
+            this.btnImageCapture.TabIndex = 15;
+            this.btnImageCapture.Text = "Image";
+            this.btnImageCapture.UseVisualStyleBackColor = true;
+            this.btnImageCapture.Click += new System.EventHandler(this.btnImageCapture_Click);
+            // 
+            // openFileDialogImage
+            // 
+            this.openFileDialogImage.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif;" +
+    " *.png";
+            this.openFileDialogImage.Title = "Please select an image file.";
             // 
             // Main
             // 
@@ -258,7 +291,6 @@
             this.pnlController.ResumeLayout(false);
             this.pnlController.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuallity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFactor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSpeed)).EndInit();
             this.ResumeLayout(false);
@@ -278,11 +310,14 @@
         private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.NumericUpDown numSpeed;
         private System.Windows.Forms.NumericUpDown numFactor;
-        private System.Windows.Forms.NumericUpDown numTab;
         private System.Windows.Forms.NumericUpDown numQuallity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnTcpCapture;
+        private System.Windows.Forms.ComboBox comboBoxTab;
+        private System.Windows.Forms.Button btnImageCapture;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImage;
     }
 }
 
